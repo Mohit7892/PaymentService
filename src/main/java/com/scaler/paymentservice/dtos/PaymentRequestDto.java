@@ -9,7 +9,7 @@ public class PaymentRequestDto {
 
     private Double amount;
     private String orderId;
-    private Integer phoneNumber;
+    private String phoneNumber;
     private String email;
     private String name;
 }
