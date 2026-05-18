@@ -3,6 +3,7 @@ package com.scaler.paymentservice.services;
 import com.razorpay.RazorpayException;
 import com.scaler.paymentservice.paymentgateways.IPaymentGateway;
 import com.scaler.paymentservice.paymentgateways.PaymentGatewayChooserStrategy;
+import com.stripe.exception.StripeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class ProductService implements IProductService {
     @Override
     public String getPaymentLink(Double amount, String orderId,
                                  String phoneNumber, String email, String name,
-                                 String gateway) throws RazorpayException {
+                                 String gateway) throws RazorpayException, StripeException {
 
         IPaymentGateway iPaymentGateway = paymentGatewayChooserStrategy
                 .getPaymentGateway(gateway);
