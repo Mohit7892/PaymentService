@@ -4,6 +4,7 @@ import com.razorpay.RazorpayException;
 import com.scaler.paymentservice.dtos.PaymentRequestDto;
 import com.scaler.paymentservice.services.IProductService;
 import com.stripe.exception.StripeException;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,5 +24,11 @@ public class PaymentController {
                 paymentRequestDto.getOrderId(), paymentRequestDto.getPhoneNumber(),
                 paymentRequestDto.getEmail(), paymentRequestDto.getName(),
                 gateway);
+    }
+
+
+    @GetMapping("/welcome/{name}")
+    public String welcomeToPayments(@PathVariable String name){
+        return "Welcome to payments service "+name;
     }
 }
